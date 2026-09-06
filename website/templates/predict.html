@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Predict — Sentiscope{% endblock %}
+
+{% block content %}
+<section class="page-header wrap">
+  <p class="eyebrow">Live reading</p>
+  <h1>Take a reading</h1>
+  <p class="page-sub">Type a sentence below. The needle finds where it sits between negative and positive.</p>
+  <a href="{{ url_for('home') }}" class="btn-back">&larr; Back to home</a>
+</section>
+
+<section class="demo-section wrap" id="demo">
+  <div class="demo-grid">
+
+    <div class="demo-input-panel">
+      <label for="text-input" class="panel-label">Your text</label>
+      <textarea id="text-input" maxlength="2000" rows="7"
+        placeholder="e.g. &quot;Waited forty minutes for cold coffee, absolutely not going back.&quot;"></textarea>
+      <div class="demo-controls">
+        <span class="char-count"><span id="char-count">0</span> / 2000</span>
+        <button id="analyze-btn" type="button">
+          <span>Take a reading</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <p id="error-msg" class="error-msg" hidden></p>
+
+      <div id="word-contributions" class="word-contributions" hidden>
+        <p class="panel-label">What moved the needle</p>
+        <div id="word-chips" class="word-chips"></div>
+      </div>
+    </div>
+
+    <div class="demo-gauge-panel">
+      <div class="gauge-wrap">
+        <svg viewBox="0 0 240 150" class="gauge-svg" id="gauge-svg">
+          <path d="M 20 130 A 100 100 0 0 1 86 35" fill="none" stroke="var(--negative)" stroke-width="14" stroke-linecap="round"/>
+          <path d="M 91 31 A 100 100 0 0 1 149 31" fill="none" stroke="var(--neutral)" stroke-width="14" stroke-linecap="round"/>
+          <path d="M 154 35 A 100 100 0 0 1 220 130" fill="none" stroke="var(--positive)" stroke-width="14" stroke-linecap="round"/>
+          <g id="needle" style="transform-origin: 120px 130px; transform: rotate(0deg); transition: transform 0.9s cubic-bezier(.34,1.56,.64,1);">
+            <line x1="120" y1="130" x2="120" y2="45" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="120" cy="130" r="7" fill="var(--ink)"/>
+          </g>
+        </svg>
+        <div class="gauge-labels">
+          <span>Negative</span><span>Neutral</span><span>Positive</span>
+        </div>
+      </div>
+
+      <div class="reading-readout">
+        <p class="readout-label">Reading</p>
+        <p id="readout-sentiment" class="readout-sentiment">&mdash;</p>
+        <p id="readout-confidence" class="readout-confidence">Awaiting input</p>
+      </div>
+
+      <div class="proba-bars" id="proba-bars">
+        <div class="proba-row" data-key="negative">
+          <span class="proba-name">Negative</span>
+          <div class="proba-track"><div class="proba-fill" style="width:0%"></div></div>
+          <span class="proba-pct">0%</span>
+        </div>
+        <div class="proba-row" data-key="neutral">
+          <span class="proba-name">Neutral</span>
+          <div class="proba-track"><div class="proba-fill" style="width:0%"></div></div>
+          <span class="proba-pct">0%</span>
+        </div>
+        <div class="proba-row" data-key="positive">
+          <span class="proba-name">Positive</span>
+          <div class="proba-track"><div class="proba-fill" style="width:0%"></div></div>
+          <span class="proba-pct">0%</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

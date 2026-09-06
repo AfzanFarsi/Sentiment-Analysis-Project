@@ -1,0 +1,5 @@
+model,dataset,accuracy,precision_macro,recall_macro,f1_macro,is_best_model
+Logistic Regression,validation,0.6819,0.6852,0.684,0.6846,True
+Random Forest,validation,0.6223,0.7011,0.5909,0.5979,False
+Multinomial Naive Bayes,validation,0.6391,0.6813,0.6197,0.6319,False
+Logistic Regression,test (holdout),0.6999,0.7021,0.7049,0.7032,True

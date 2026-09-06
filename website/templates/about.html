@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}About — Sentiscope{% endblock %}
+
+{% block content %}
+<section class="page-header wrap">
+  <p class="eyebrow">The pipeline</p>
+  <h1>How the reading is taken</h1>
+  <p class="page-sub">Five steps turn raw text into the reading you see on the Predict page.</p>
+  <a href="{{ url_for('home') }}" class="btn-back">&larr; Back to home</a>
+</section>
+
+<section class="method-section wrap">
+  <ol class="method-list">
+    <li>
+      <span class="method-num">01</span>
+      <div><h4>Preprocess</h4><p>Strip URLs, mentions, and punctuation; drop stopwords; encode labels; cap outliers.</p></div>
+    </li>
+    <li>
+      <span class="method-num">02</span>
+      <div><h4>Explore</h4><p>Chart class balance, word-length distributions, and per-class vocabulary.</p></div>
+    </li>
+    <li>
+      <span class="method-num">03</span>
+      <div><h4>Engineer features</h4><p>TF-IDF over unigrams and bigrams, encoded demographics, scaled numerics.</p></div>
+    </li>
+    <li>
+      <span class="method-num">04</span>
+      <div><h4>Train &amp; evaluate</h4><p>Logistic Regression, Random Forest, and Naive Bayes compared on macro F1.</p></div>
+    </li>
+    <li>
+      <span class="method-num">05</span>
+      <div><h4>Serve</h4><p>The winning model runs live on the Predict page, and its results feed the Power BI dashboard.</p></div>
+    </li>
+  </ol>
+</section>
+
+<section class="about-section wrap">
+  <div class="about-grid">
+    <div class="about-block">
+      <h3>The model</h3>
+      <p>Sentiscope classifies text into three sentiment classes &mdash; negative, neutral,
+        positive &mdash; using a Logistic Regression model trained over TF-IDF features
+        (unigrams and bigrams). It was chosen after being compared head-to-head against
+        Random Forest and Multinomial Naive Bayes on macro-averaged F1 score.</p>
+    </div>
+    <div class="about-block">
+      <h3>The data</h3>
+      <p>Training data is a labeled collection of short-form text posts, each tagged
+        negative, neutral, or positive, along with contextual fields like time of day,
+        age group, and country &mdash; used in the dashboard to see how sentiment breaks
+        down across those dimensions, even though they turned out not to be strong
+        predictors of sentiment themselves.</p>
+    </div>
+    <div class="about-block">
+      <h3>The dashboard</h3>
+      <p>Every chart on the Dashboard page is built in Power BI from the model's
+        predictions on a held-out test set &mdash; sentiment by time of day, by age group,
+        by country, the vocabulary driving each class, and how the three candidate models
+        stacked up against each other.</p>
+    </div>
+    <div class="about-block">
+      <h3>Tech stack</h3>
+      <p>Python, scikit-learn, and pandas for the ML pipeline; Flask for this site;
+        Power BI for the dashboard visuals.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

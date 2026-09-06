@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — Sentiscope{% endblock %}
+
+{% block extra_head %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<section class="page-header wrap">
+  <p class="eyebrow">Behind the model</p>
+  <h1>The dashboard</h1>
+  <p class="page-sub">Live charts built from the model's predictions on the held-out test set &mdash; the same six pages as the Power BI report, rendered here from the underlying data.</p>
+  <a href="{{ url_for('home') }}" class="btn-back">&larr; Back to home</a>
+</section>
+
+<section class="dashboard-section wrap">
+
+  <div class="dash-tabs" id="dash-tabs">
+    <button class="dash-tab active" data-page="age">Sentiment by Age</button>
+    <button class="dash-tab" data-page="time">Sentiment by Time</button>
+    <button class="dash-tab" data-page="country">Sentiment by Country</button>
+    <button class="dash-tab" data-page="words">Top Words</button>
+    <button class="dash-tab" data-page="predictions">Predictions</button>
+    <button class="dash-tab" data-page="models">Model Performance</button>
+  </div>
+
+  <!-- ===== Sentiment by Age ===== -->
+  <div class="dash-page" data-page="age">
+    <div class="chart-card">
+      <h3>Sentiment distribution by age group</h3>
+      <p class="chart-note">Every age bracket carries roughly the same negative / neutral / positive split &mdash; age isn't a strong predictor of sentiment here.</p>
+      <div class="chart-frame"><canvas id="chart-age"></canvas></div>
+    </div>
+  </div>
+
+  <!-- ===== Sentiment by Time ===== -->
+  <div class="dash-page" data-page="time" hidden>
+    <div class="chart-card">
+      <h3>Sentiment distribution by time of day</h3>
+      <p class="chart-note">Morning, noon, and night all show a near-identical mix &mdash; mood doesn't swing with the clock in this dataset.</p>
+      <div class="chart-frame"><canvas id="chart-time"></canvas></div>
+    </div>
+  </div>
+
+  <!-- ===== Sentiment by Country ===== -->
+  <div class="dash-page" data-page="country" hidden>
+    <div class="chart-card">
+      <h3>Sentiment distribution by country (top 15 by volume)</h3>
+      <p class="chart-note">Each bar shows one country's share of negative, neutral, and positive readings.</p>
+      <div class="chart-frame chart-frame-tall"><canvas id="chart-country"></canvas></div>
+    </div>
+  </div>
+
+  <!-- ===== Top Words ===== -->
+  <div class="dash-page" data-page="words" hidden>
+    <div class="chart-card">
+      <h3>Top words associated with each sentiment</h3>
+      <p class="chart-note">The specific vocabulary the model leans on hardest for each class.</p>
+      <div class="word-tabs" id="word-tabs">
+        <button class="word-tab active" data-sentiment="negative">Negative</button>
+        <button class="word-tab" data-sentiment="neutral">Neutral</button>
+        <button class="word-tab" data-sentiment="positive">Positive</button>
+      </div>
+      <div class="chart-frame chart-frame-tall"><canvas id="chart-words"></canvas></div>
+    </div>
+  </div>
+
+  <!-- ===== Predictions ===== -->
+  <div class="dash-page" data-page="predictions" hidden>
+    <div class="chart-grid-2">
+      <div class="chart-card">
+        <h3>Model prediction accuracy</h3>
+        <div class="chart-frame"><canvas id="chart-accuracy-donut"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Actual vs. predicted sentiment</h3>
+        <div class="chart-frame"><canvas id="chart-actual-predicted"></canvas></div>
+      </div>
+    </div>
+    <div class="chart-card">
+      <h3>Average prediction confidence by sentiment</h3>
+      <div class="chart-frame"><canvas id="chart-confidence"></canvas></div>
+    </div>
+  </div>
+
+  <!-- ===== Model Performance ===== -->
+  <div class="dash-page" data-page="models" hidden>
+    <div class="chart-grid-2">
+      <div class="chart-card">
+        <h3>Accuracy comparison of models</h3>
+        <div class="chart-frame"><canvas id="chart-model-accuracy"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>F1 score comparison of models</h3>
+        <div class="chart-frame"><canvas id="chart-model-f1"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

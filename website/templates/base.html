@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Sentiscope{% endblock %}</title>
+<meta name="description" content="Sentiscope — an instrument for reading sentiment in text.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% block extra_head %}{% endblock %}
+</head>
+<body>
+
+<div class="grain-overlay" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ url_for('home') }}">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M2 12h4l2-8 4 16 3-11 2 3h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      Sentiscope
+    </a>
+    <nav class="site-nav">
+      <a href="{{ url_for('home') }}" class="{{ 'is-active' if active_page == 'home' else '' }}">Home</a>
+      <a href="{{ url_for('dashboard') }}" class="{{ 'is-active' if active_page == 'dashboard' else '' }}">Dashboard</a>
+      <a href="{{ url_for('predict') }}" class="{{ 'is-active' if active_page == 'predict' else '' }}">Predict</a>
+      <a href="{{ url_for('about') }}" class="{{ 'is-active' if active_page == 'about' else '' }}">About</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+{% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>Sentiscope &mdash; a sentiment analysis instrument. Logistic Regression over TF-IDF.</p>
+    <a href="{{ url_for('home') }}" class="footer-home-link">&larr; Back to home</a>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% block extra_scripts %}{% endblock %}
+</body>
+</html>

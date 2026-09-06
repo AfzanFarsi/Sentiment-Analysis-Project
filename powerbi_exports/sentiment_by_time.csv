@@ -1,0 +1,10 @@
+time_of_tweet,predicted_sentiment,count,proportion
+morning,negative,365,0.31090289608177174
+morning,neutral,448,0.38160136286201024
+morning,positive,361,0.3074957410562181
+noon,negative,370,0.3151618398637138
+noon,neutral,447,0.3807495741056218
+noon,positive,357,0.3040885860306644
+night,negative,332,0.282793867120954
+night,neutral,479,0.4080068143100511
+night,positive,363,0.3091993185689949

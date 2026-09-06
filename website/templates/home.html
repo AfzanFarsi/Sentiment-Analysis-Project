@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Sentiscope — Read the room, instantly{% endblock %}
+
+{% block content %}
+<section class="hero wrap">
+  <p class="eyebrow">Text sentiment instrument</p>
+  <h1>Read the room,<br><em>instantly.</em></h1>
+  <p class="hero-sub">
+    Sentiscope is a sentiment classifier that reads a sentence, a review, or a comment
+    and tells you where it sits between negative and positive &mdash; backed by a full
+    machine learning pipeline and a Power BI dashboard underneath.
+  </p>
+  <div class="hero-ctas">
+    <a href="{{ url_for('predict') }}" class="btn-primary">
+      Try a live reading
+      <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="{{ url_for('dashboard') }}" class="btn-secondary">View the dashboard</a>
+  </div>
+
+  <div class="stat-strip">
+    <div class="stat"><span class="stat-num">{{ (metrics.accuracy * 100) | round(1) }}%</span><span class="stat-label">test accuracy</span></div>
+    <div class="stat"><span class="stat-num">{{ (metrics.macro_f1 * 100) | round(1) }}%</span><span class="stat-label">macro F1</span></div>
+    <div class="stat"><span class="stat-num">3</span><span class="stat-label">sentiment classes</span></div>
+    <div class="stat"><span class="stat-num">5,000+</span><span class="stat-label">TF-IDF text features</span></div>
+  </div>
+</section>
+
+<section class="teaser-section wrap">
+  <div class="teaser-grid">
+    <a href="{{ url_for('predict') }}" class="teaser-card">
+      <span class="teaser-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zm0 4v5l3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <h3>Take a reading</h3>
+      <p>Type anything and watch the needle move in real time.</p>
+    </a>
+    <a href="{{ url_for('dashboard') }}" class="teaser-card">
+      <span class="teaser-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26"><path d="M4 19V9m7 10V5m7 14v-7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <h3>Explore the dashboard</h3>
+      <p>See sentiment broken down by time, age, country, and vocabulary.</p>
+    </a>
+    <a href="{{ url_for('about') }}" class="teaser-card">
+      <span class="teaser-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 17v.01M12 13.5c0-2 2-2 2-4a2 2 0 10-4 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+      </span>
+      <h3>How it works</h3>
+      <p>The pipeline behind the model, step by step.</p>
+    </a>
+  </div>
+</section>
+{% endblock %}

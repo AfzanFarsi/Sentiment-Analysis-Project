@@ -1,0 +1,91 @@
+country,predicted_sentiment,count,proportion
+Afghanistan,negative,10,0.5
+Afghanistan,neutral,4,0.2
+Afghanistan,positive,6,0.3
+Algeria,negative,6,0.3
+Algeria,neutral,10,0.5
+Algeria,positive,4,0.2
+Andorra,negative,6,0.3
+Andorra,neutral,10,0.5
+Andorra,positive,4,0.2
+Angola,negative,9,0.45
+Angola,neutral,5,0.25
+Angola,positive,6,0.3
+Antigua and Barbuda,negative,9,0.45
+Antigua and Barbuda,neutral,6,0.3
+Antigua and Barbuda,positive,5,0.25
+Argentina,negative,6,0.3
+Argentina,neutral,9,0.45
+Argentina,positive,5,0.25
+Armenia,negative,8,0.4
+Armenia,neutral,5,0.25
+Armenia,positive,7,0.35
+Australia,negative,7,0.35
+Australia,neutral,9,0.45
+Australia,positive,4,0.2
+Austria,negative,4,0.2
+Austria,neutral,10,0.5
+Austria,positive,6,0.3
+Azerbaijan,negative,6,0.3
+Azerbaijan,neutral,9,0.45
+Azerbaijan,positive,5,0.25
+Bahamas,negative,9,0.45
+Bahamas,neutral,6,0.3
+Bahamas,positive,5,0.25
+Bahrain,negative,8,0.4
+Bahrain,neutral,5,0.25
+Bahrain,positive,7,0.35
+Bangladesh,negative,6,0.3
+Bangladesh,neutral,7,0.35
+Bangladesh,positive,7,0.35
+Barbados,negative,7,0.35
+Barbados,neutral,8,0.4
+Barbados,positive,5,0.25
+Belarus,negative,8,0.4
+Belarus,neutral,7,0.35
+Belarus,positive,5,0.25
+Belgium,negative,3,0.15
+Belgium,neutral,10,0.5
+Belgium,positive,7,0.35
+Belize,negative,4,0.2
+Belize,neutral,10,0.5
+Belize,positive,6,0.3
+Benin,negative,9,0.45
+Benin,neutral,5,0.25
+Benin,positive,6,0.3
+Bhutan,negative,7,0.35
+Bhutan,neutral,7,0.35
+Bhutan,positive,6,0.3
+Bolivia,negative,6,0.3
+Bolivia,neutral,9,0.45
+Bolivia,positive,5,0.25
+Bosnia and Herzegovina,negative,6,0.3
+Bosnia and Herzegovina,neutral,8,0.4
+Bosnia and Herzegovina,positive,6,0.3
+Botswana,negative,6,0.3
+Botswana,neutral,8,0.4
+Botswana,positive,6,0.3
+Brazil,negative,4,0.2
+Brazil,neutral,9,0.45
+Brazil,positive,7,0.35
+Brunei,negative,7,0.35
+Brunei,neutral,7,0.35
+Brunei,positive,6,0.3
+Bulgaria,negative,6,0.3
+Bulgaria,neutral,5,0.25
+Bulgaria,positive,9,0.45
+Burkina Faso,negative,6,0.3
+Burkina Faso,neutral,7,0.35
+Burkina Faso,positive,7,0.35
+Burundi,negative,4,0.2
+Burundi,neutral,10,0.5
+Burundi,positive,6,0.3
+Cabo Verde,negative,4,0.2
+Cabo Verde,neutral,9,0.45
+Cabo Verde,positive,7,0.35
+Cambodia,negative,5,0.25
+Cambodia,neutral,9,0.45
+Cambodia,positive,6,0.3
+Côte d'Ivoire,negative,1,0.05
+Côte d'Ivoire,neutral,12,0.6
+Côte d'Ivoire,positive,7,0.35
